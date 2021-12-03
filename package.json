@@ -1,6 +1,11 @@
 {
   "name": "age-of-empires",
   "private": true,
+  "author": {
+    "name": "Melih Özkalay",
+    "email":"melihozkalayy@gmail.com",
+    "url": "https://github.com/ozkalai"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
