@@ -1,17 +1,17 @@
-export interface IUnitDetail {
+export interface IUnitCommon {
   accuracy?: string;
   attack?: number;
   hit_points: number;
   reload_time?: number;
   build_time?: number;
-  cost: Cost;
+  cost: Cost | null;
   age: string;
   description: string;
   id: number;
   name: string;
 }
 
-export interface IUnit extends IUnitDetail {
+export interface IUnit extends IUnitCommon {
   expansion: string;
   attack_delay?: number;
   movement_rate?: number;
