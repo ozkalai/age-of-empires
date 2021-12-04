@@ -14,7 +14,7 @@ export const Navigation: React.FC = () => {
         <NavigationItem href="/" isActive={asPath === "/"}>
           Home
         </NavigationItem>
-        <NavigationItem href="/unit" isActive={asPath === "/unit"}>
+        <NavigationItem href="/units" isActive={asPath === "/units"}>
           Units
         </NavigationItem>
       </ul>
