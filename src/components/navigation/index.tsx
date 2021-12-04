@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { NavigationItem } from "..";
 import styles from "./Navigation.module.sass";
@@ -8,8 +9,16 @@ export const Navigation: React.FC = () => {
     <div className={styles.navigation}>
       <div className={styles.logo}>🛡</div>
       <ul className={styles.list}>
-        <NavigationItem isActive>Home</NavigationItem>
-        <NavigationItem>Units</NavigationItem>
+        <NavigationItem isActive>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </NavigationItem>
+        <NavigationItem>
+          <Link href="/unit">
+            <a>Units</a>
+          </Link>
+        </NavigationItem>
       </ul>
     </div>
   );
