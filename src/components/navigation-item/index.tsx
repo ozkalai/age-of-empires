@@ -7,9 +7,5 @@ interface INavigationItem extends React.AnchorHTMLAttributes<HTMLLIElement> {
 }
 
 export const NavigationItem: React.FC<INavigationItem> = ({ children, className, isActive }) => {
-  return (
-    <li title="navigation-item" className={`${styles.navigationItem} ${isActive ? `${styles.active}` : ""}`}>
-      {children}
-    </li>
-  );
+  return <li className={`${styles.navigationItem} ${isActive ? `${styles.active}` : ""}`}>{children}</li>;
 };
