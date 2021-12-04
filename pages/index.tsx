@@ -7,9 +7,9 @@ const Home: NextPage = () => {
   return (
     <div className={styles.home}>
       <div className={styles.imageWrapper}>
-        <Image src="/age.jpg" layout="fill" objectFit="cover" />
+        <Image src="/images/age.jpg" layout="fill" objectFit="cover" />
         <div className={styles.name}>
-          <Image src="/age.png" width={300} height={180} />
+          <Image src="/images/age.png" width={300} height={180} />
         </div>
       </div>
     </div>
