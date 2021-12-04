@@ -3,13 +3,19 @@ import { render, screen } from "@testing-library/react";
 import Home from "../pages/index";
 
 describe("Home", () => {
-  it("renders a heading", () => {
+  it("renders cover image", () => {
     render(<Home />);
 
-    const heading = screen.getByRole("heading", {
-      name: /welcome to next\.js!/i,
-    });
+    const coverImage = screen.getAllByAltText("cover-image");
 
-    expect(heading).toBeInTheDocument();
+    expect(coverImage).toBeTruthy();
+  });
+
+  it("renders age of empires image", () => {
+    render(<Home />);
+
+    const ageOfEmpiresImage = screen.getAllByAltText("age-of-empires");
+
+    expect(ageOfEmpiresImage).toBeTruthy();
   });
 });
