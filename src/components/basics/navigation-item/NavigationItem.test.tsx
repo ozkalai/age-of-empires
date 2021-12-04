@@ -5,7 +5,7 @@ import { NavigationItem } from ".";
 
 describe("NavigationItem", () => {
   it("renders a list element", () => {
-    render(<NavigationItem />);
+    render(<NavigationItem href="" />);
 
     const title = screen.getByTitle("navigation-item");
 
