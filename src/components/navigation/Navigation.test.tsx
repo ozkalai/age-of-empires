@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 
 import { Navigation } from ".";
-import { createMockRouter } from "../../test-utils/createMockRouter";
+import { createMockRouter } from "../../../__mocks__/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
 
 describe("Navigation", () => {
