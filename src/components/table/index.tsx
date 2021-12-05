@@ -16,7 +16,7 @@ interface ITable {
   data: IRow[];
 }
 
-const tableCols = ["ID", "Name", "Age", "Cost", ""];
+export const tableCols = ["ID", "Name", "Age", "Cost", ""];
 
 const renderCost = (cost: Cost | null) =>
   `${cost?.Wood ? `${cost?.Wood} 🪵 ` : ""}${cost?.Food ? `${cost?.Food} 🥩 ` : ""}${
@@ -26,10 +26,10 @@ const renderCost = (cost: Cost | null) =>
 export const Table: React.FC<ITable> = ({ data }) => {
   return (
     <div className="w-full overflow-scroll">
-      <TableContainer>
-        <MaUTable>
+      <TableContainer data-testid="table-container">
+        <MaUTable data-testid="mau">
           <TableHead>
-            <TableRow>
+            <TableRow data-testid="table-head-row">
               {tableCols.map((name) => (
                 <TableCell variant="head" key={`head-cell-${name}`}>
                   {name}
@@ -40,7 +40,7 @@ export const Table: React.FC<ITable> = ({ data }) => {
           <TableBody>
             {data.map((row) => {
               return (
-                <TableRow key={`body-row-${row.id}`}>
+                <TableRow data-testid="body-row" key={`body-row-${row.id}`}>
                   <TableCell key={`body-cell-${row.id}-id`}>{row.id}</TableCell>
                   <TableCell key={`body-cell-${row.id}-name`}>
                     <div className="hidden md:block">{row.name}</div>
