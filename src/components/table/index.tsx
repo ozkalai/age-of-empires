@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
 import { Cost, IUnitCommon } from "@/typing/Unit";
 import { Button } from "@material-ui/core";
+import { renderCost } from "@/utils/render-cost";
 
 interface IRow extends Pick<IUnitCommon, "id" | "age" | "name" | "cost"> {}
 
@@ -17,11 +18,6 @@ interface ITable {
 }
 
 export const tableCols = ["ID", "Name", "Age", "Cost", ""];
-
-const renderCost = (cost: Cost | null) =>
-  `${cost?.Wood ? `${cost?.Wood} 🪵 ` : ""}${cost?.Food ? `${cost?.Food} 🥩 ` : ""}${
-    cost?.Gold ? `${cost?.Gold} 💰 ` : ""
-  }`;
 
 export const Table: React.FC<ITable> = ({ data }) => {
   return (
@@ -54,9 +50,11 @@ export const Table: React.FC<ITable> = ({ data }) => {
                   <TableCell key={`body-cell-${row.id}-cost`}>{renderCost(row.cost)}</TableCell>
                   <TableCell align="left" padding="none" key={`body-cell-${row.id}-cost`}>
                     <div className="hidden md:block">
-                      <Button className="hidden md:block w-1/2 md:w-full" variant="outlined">
-                        Details
-                      </Button>
+                      <Link href={`/units/${row.id}`}>
+                        <Button className="hidden md:block w-1/2 md:w-full" variant="outlined">
+                          Details
+                        </Button>
+                      </Link>
                     </div>
                   </TableCell>
                   {/* {row..map((cell, j) => {
