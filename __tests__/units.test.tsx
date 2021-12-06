@@ -1,23 +1,20 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import DetailPage from "../pages/units/[id]";
-import { createMockRouter } from "../__mocks__/createMockRouter";
-import { RouterContext } from "next/dist/shared/lib/router-context";
+import Units from "../pages/units";
 
-describe("Detail", () => {
-  it("renders unit name", () => {
-    render(
-      <RouterContext.Provider
-        value={createMockRouter({
-          query: {
-            id: "1",
-          },
-        })}
-      >
-        <DetailPage />
-      </RouterContext.Provider>,
-    );
+describe("Units page", () => {
+  it("renders button group", () => {
+    render(<Units />);
 
-    expect(screen.queryByText("Archer")).toBeTruthy();
+    const buttonGroup = screen.getByLabelText("button-group");
+
+    expect(buttonGroup).toBeTruthy();
   });
+
+  //   it("renders age of empires image", () => {
+  //     render(<Units />);
+
+  //     const ageOfEmpiresImage = screen.getAllByAltText("age-of-empires");
+
+  //     expect(ageOfEmpiresImage).toBeTruthy();
+  //   });
 });
