@@ -1,14 +1,14 @@
 export interface IUnitCommon {
-  accuracy?: string;
-  attack?: number;
-  hit_points: number;
-  reload_time?: number;
-  build_time?: number;
-  cost: Cost | null;
-  age: string;
-  description: string;
   id: number;
   name: string;
+  age: string;
+  description: string;
+  cost: Cost | null;
+  hit_points: number;
+  attack?: number;
+  accuracy?: string;
+  reload_time?: number;
+  build_time?: number;
 }
 
 export interface IUnit extends IUnitCommon {
