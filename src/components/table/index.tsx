@@ -17,7 +17,7 @@ interface ITable {
   data: IRow[];
 }
 
-export const tableCols = ["ID", "Name", "Age", "Cost", ""];
+export const tableCols = ["ID", "Name", "Age", "Cost", " "];
 
 export const Table: React.FC<ITable> = ({ data }) => {
   return (
@@ -37,8 +37,8 @@ export const Table: React.FC<ITable> = ({ data }) => {
             {data.map((row) => {
               return (
                 <TableRow data-testid="body-row" key={`body-row-${row.id}`}>
-                  <TableCell key={`body-cell-${row.id}-id`}>{row.id}</TableCell>
-                  <TableCell key={`body-cell-${row.id}-name`}>
+                  <TableCell>{row.id}</TableCell>
+                  <TableCell>
                     <div className="hidden md:block">{row.name}</div>
                     <div className="block md:hidden">
                       <Link href={`/units/${row.id}`}>
@@ -46,9 +46,9 @@ export const Table: React.FC<ITable> = ({ data }) => {
                       </Link>
                     </div>
                   </TableCell>
-                  <TableCell key={`body-cell-${row.id}-age`}>{row.age}</TableCell>
-                  <TableCell key={`body-cell-${row.id}-cost`}>{renderCost(row.cost)}</TableCell>
-                  <TableCell align="left" padding="none" key={`body-cell-${row.id}-cost`}>
+                  <TableCell>{row.age}</TableCell>
+                  <TableCell>{renderCost(row.cost)}</TableCell>
+                  <TableCell align="left" padding="none">
                     <div className="hidden md:block">
                       <Link href={`/units/${row.id}`}>
                         <Button className="hidden md:block w-1/2 md:w-full" variant="outlined">
@@ -57,9 +57,6 @@ export const Table: React.FC<ITable> = ({ data }) => {
                       </Link>
                     </div>
                   </TableCell>
-                  {/* {row..map((cell, j) => {
-                return <TableCell key={j + 1}>{cell.render("Cell")}</TableCell>;
-              })} */}
                 </TableRow>
               );
             })}
