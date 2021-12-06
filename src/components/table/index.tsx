@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
 import { Cost, IUnitCommon } from "@/typing/Unit";
 import { Button } from "@material-ui/core";
-import { renderCost } from "@/utils/render-cost";
+import { renderCost } from "../../utils/render-cost";
 
 interface IRow extends Pick<IUnitCommon, "id" | "age" | "name" | "cost"> {}
 
