@@ -8,7 +8,7 @@ export const Navigation: React.FC = () => {
   const { asPath } = useRouter();
 
   return (
-    <div className={styles.navigation}>
+    <div data-testid="navigation" className={styles.navigation}>
       <div className={styles.logo}>🛡</div>
       <ul className={styles.list}>
         <NavigationItem href="/" isActive={asPath === "/"}>
