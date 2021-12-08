@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 
-import styles from "@/styles/pages/Home.module.sass";
+import styles from "@styles/pages/Home.module.sass";
 
 const Home: NextPage = () => {
   return (

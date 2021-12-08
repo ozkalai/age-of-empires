@@ -7,9 +7,10 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
-import { ICost, IUnitCommon } from "@/typing/Unit";
+import { IUnitCommon } from "@typing/Unit";
 import { Button } from "@material-ui/core";
-import { renderCost } from "../../utils/render-cost";
+
+import { renderCost } from "@utils/render-cost";
 
 interface IRow extends Pick<IUnitCommon, "id" | "age" | "name" | "cost"> {}
 
@@ -50,7 +51,7 @@ export const Table: React.FC<ITable> = ({ data }) => {
                   <TableCell>{renderCost(row.cost)}</TableCell>
                   <TableCell align="left" padding="none">
                     <div className="hidden md:block">
-                      <Link href={`/units/${row.id}`}>
+                      <Link passHref href={`/units/${row.id}`}>
                         <Button className="hidden md:block w-1/2 md:w-full" variant="outlined">
                           Details
                         </Button>

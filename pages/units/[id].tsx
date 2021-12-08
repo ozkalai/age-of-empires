@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import data from "../../src/data/units.json";
-import { IUnit } from "@/typing/Unit";
-import { renderCost } from "../../src/utils/render-cost";
-import styles from "../../src/styles/pages/Detail.module.sass";
+import data from "@data/units.json";
+import { IUnit } from "@typing/Unit";
+import { renderCost } from "@utils/render-cost";
+import styles from "@styles/pages/Detail.module.sass";
 
 const DetailPage: NextPage = () => {
   const { query } = useRouter();

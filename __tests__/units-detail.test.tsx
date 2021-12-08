@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import DetailPage from "../pages/units/[id]";
+
+import DetailPage from "@pages/units/[id]";
 import { createMockRouter } from "../__mocks__/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
 

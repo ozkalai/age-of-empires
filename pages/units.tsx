@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { Table } from "../src/components/table";
-import { CostFilter } from "../src/components/cost-filter";
-import rawData from "../src/data/units.json";
-import { ICost, IUnit } from "../src/typing/Unit";
-import styles from "../src/styles/pages/Units.module.sass";
+import { Table } from "@components/table";
+import { CostFilter } from "@components/cost-filter";
+import rawData from "@data/units.json";
+import { ICost, IUnit } from "@typing/Unit";
+import styles from "@styles/pages/Units.module.sass";
 import { Button, ButtonGroup, Box } from "@mui/material";
 
 interface IFilterCosts {

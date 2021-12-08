@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC } from "react";
 import { Checkbox, Box, Slider } from "@mui/material";
 
 import styles from "./CostFilter.module.sass";
-import { ICost } from "../../typing/Unit";
+import { ICost } from "@typing/Unit";
 
 interface ICostFilter {
   costType: keyof ICost;

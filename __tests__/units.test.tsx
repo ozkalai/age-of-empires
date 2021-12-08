@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Units from "../pages/units";
+import Units from "@pages/units";
 
 describe("Units page", () => {
   it("renders button group", () => {

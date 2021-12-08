@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 
 import { Table, tableCols } from ".";
-import data from "../../data/units.json";
+import data from "@data/units.json";
 
 describe("Table", () => {
   it("renders all data rows", () => {
