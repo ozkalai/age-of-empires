@@ -9,8 +9,13 @@ import { Cost, IUnit } from "../src/typing/Unit";
 import styles from "../src/styles/pages/Units.module.sass";
 import { Button, ButtonGroup, Box } from "@mui/material";
 
+interface IFilterCosts {
+  type: keyof Cost;
+  range: [number, number];
+}
+
 const ages = ["All", "Dark", "Feudal", "Castle", "Imperial"];
-const costs = [
+const costs: IFilterCosts[] = [
   { type: "Wood", range: [0, 200] },
   { type: "Food", range: [0, 200] },
   { type: "Gold", range: [50, 150] },
@@ -19,6 +24,7 @@ const costs = [
 const Units: NextPage = () => {
   const [units, setUnits] = useState<IUnit[]>(rawData.units as IUnit[]);
   const [selectedAge, setSelectedAge] = useState("All");
+  const [selectedCost, setSelectedCost] = useState<IFilterCosts[]>();
 
   useEffect(() => {
     if (selectedAge !== "All") {
@@ -28,15 +34,20 @@ const Units: NextPage = () => {
     } else {
       setUnits(rawData.units as IUnit[]);
     }
-  }, [selectedAge]);
+  }, [selectedAge, selectedCost]);
 
-  useEffect(() => {
-    console.log(units);
-  }, [units]);
-
-  const setUnitsWithCosts = (range: number[], costType: string) => {
-    const newUnits = units.filter((u) => u.cost?.Wood);
-    setUnits(newUnits);
+  const updateSelectedCosts = (costType: keyof Cost, isChecked: boolean) => {
+    if (!isChecked) {
+      const newCosts = costs.filter((c) => c.type === costType);
+      if (selectedCost) {
+        setSelectedCost([...selectedCost, newCosts[0]]);
+      } else {
+        setSelectedCost(newCosts);
+      }
+    } else {
+      const updatedCosts = selectedCost?.filter((c) => c.type !== costType);
+      setSelectedCost(updatedCosts);
+    }
   };
 
   return (
@@ -48,8 +59,8 @@ const Units: NextPage = () => {
           {ages.map((age) => {
             if (selectedAge === age) {
               return (
-                <Box bgcolor="black" color="white">
-                  <Button key={age}>{age}</Button>
+                <Box key={age} bgcolor="black" color="white">
+                  <Button>{age}</Button>
                 </Box>
               );
             }
@@ -65,7 +76,7 @@ const Units: NextPage = () => {
       <div className={styles.filter}>
         <span className={styles.heading}>Costs</span>
         {costs.map((c, i) => (
-          <CostFilter costType={c.type} key={i + 1} range={c.range} setUnitsWithCosts={setUnitsWithCosts} />
+          <CostFilter costType={c.type} key={i + 1} range={c.range} updateSelectedCosts={updateSelectedCosts} />
         ))}
       </div>
       <Table data={units} />
