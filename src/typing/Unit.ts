@@ -3,7 +3,7 @@ export interface IUnitCommon {
   name: string;
   age: string;
   description: string;
-  cost: Cost | null;
+  cost: ICost | null;
   hit_points: number;
   attack?: number;
   accuracy?: string;
@@ -24,7 +24,7 @@ export interface IUnit extends IUnitCommon {
   search_radius?: number;
 }
 
-export interface Cost {
+export interface ICost {
   Wood?: number;
   Gold?: number;
   Food?: number;

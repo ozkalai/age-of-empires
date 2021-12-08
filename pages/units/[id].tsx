@@ -39,7 +39,7 @@ const DetailPage: NextPage = () => {
         <span className={styles.attrValue}>{unit.age}</span>
       </div>
       <div className={styles.attrContainer}>
-        <span className={styles.attrLabel}>Cost</span>
+        <span className={styles.attrLabel}>ICost</span>
         <span className={styles.attrValue}>{renderCost(unit.cost)}</span>
       </div>
       <div className={styles.attrContainer}>

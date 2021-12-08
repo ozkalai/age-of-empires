@@ -2,12 +2,12 @@ import React, { useEffect, useState, FC } from "react";
 import { Checkbox, Box, Slider } from "@mui/material";
 
 import styles from "./CostFilter.module.sass";
-import { Cost } from "../../typing/Unit";
+import { ICost } from "../../typing/Unit";
 
 interface ICostFilter {
-  costType: keyof Cost;
+  costType: keyof ICost;
   range: number[];
-  updateSelectedCosts: (costType: keyof Cost, isChecked: boolean) => void;
+  updateSelectedCosts: (costType: keyof ICost, isChecked: boolean) => void;
 }
 
 export const CostFilter: FC<ICostFilter> = ({ costType, range, updateSelectedCosts }) => {

@@ -5,12 +5,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Table } from "../src/components/table";
 import { CostFilter } from "../src/components/cost-filter";
 import rawData from "../src/data/units.json";
-import { Cost, IUnit } from "../src/typing/Unit";
+import { ICost, IUnit } from "../src/typing/Unit";
 import styles from "../src/styles/pages/Units.module.sass";
 import { Button, ButtonGroup, Box } from "@mui/material";
 
 interface IFilterCosts {
-  type: keyof Cost;
+  type: keyof ICost;
   range: [number, number];
 }
 
@@ -36,7 +36,7 @@ const Units: NextPage = () => {
     }
   }, [selectedAge, selectedCost]);
 
-  const updateSelectedCosts = (costType: keyof Cost, isChecked: boolean) => {
+  const updateSelectedCosts = (costType: keyof ICost, isChecked: boolean) => {
     if (!isChecked) {
       const newCosts = costs.filter((c) => c.type === costType);
       if (selectedCost) {

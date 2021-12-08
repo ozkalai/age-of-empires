@@ -7,7 +7,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableContainer from "@mui/material/TableContainer";
-import { Cost, IUnitCommon } from "@/typing/Unit";
+import { ICost, IUnitCommon } from "@/typing/Unit";
 import { Button } from "@material-ui/core";
 import { renderCost } from "../../utils/render-cost";
 
@@ -17,7 +17,7 @@ interface ITable {
   data: IRow[];
 }
 
-export const tableCols = ["ID", "Name", "Age", "Cost", " "];
+export const tableCols = ["ID", "Name", "Age", "ICost", " "];
 
 export const Table: React.FC<ITable> = ({ data }) => {
   return (
