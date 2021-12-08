@@ -7,15 +7,22 @@ import { ICost } from "../../typing/Unit";
 interface ICostFilter {
   costType: keyof ICost;
   range: number[];
-  updateSelectedCosts: (costType: keyof ICost, isChecked: boolean) => void;
+  updateSelectedCosts: (costType: keyof ICost) => void;
+  isChecked: boolean;
+  value: number[];
+  updateCostRange: (value: number[], costType: keyof ICost) => void;
 }
 
-export const CostFilter: FC<ICostFilter> = ({ costType, range, updateSelectedCosts }) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [value, setValue] = useState(range);
-
+export const CostFilter: FC<ICostFilter> = ({
+  costType,
+  range,
+  updateSelectedCosts,
+  isChecked,
+  value,
+  updateCostRange,
+}) => {
   const handleChange = (event: Event | React.SyntheticEvent<Element, Event>, newValue: number | number[]) => {
-    setValue(newValue as number[]);
+    updateCostRange(newValue as number[], costType);
   };
 
   return (
@@ -23,8 +30,7 @@ export const CostFilter: FC<ICostFilter> = ({ costType, range, updateSelectedCos
       <Checkbox
         data-testid="cost-check"
         onClick={() => {
-          updateSelectedCosts(costType, isChecked);
-          setIsChecked(!isChecked);
+          updateSelectedCosts(costType);
         }}
         color="default"
       />
