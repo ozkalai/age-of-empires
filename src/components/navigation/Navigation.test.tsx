@@ -35,7 +35,7 @@ describe("Navigation", () => {
       </RouterContext.Provider>,
     );
 
-    const listElement2 = screen.getByText("Units");
-    expect(listElement2).toBeTruthy();
+    const listElement = screen.getByText("Units");
+    expect(listElement).toBeTruthy();
   });
 });
