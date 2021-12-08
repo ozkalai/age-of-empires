@@ -17,7 +17,7 @@ describe("Navigation", () => {
     expect(logo).toBeTruthy();
   });
 
-  test("renders Home navigation item", () => {
+  test("renders Home nav item", () => {
     render(
       <RouterContext.Provider value={createMockRouter({})}>
         <Navigation />
@@ -28,7 +28,7 @@ describe("Navigation", () => {
     expect(listElement).toBeTruthy();
   });
 
-  test("renders Home navigation item", () => {
+  test("renders Units nav item", () => {
     render(
       <RouterContext.Provider value={createMockRouter({})}>
         <Navigation />
