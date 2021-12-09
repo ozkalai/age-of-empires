@@ -36,12 +36,7 @@ export const CostFilter: FC<ICostFilter> = ({
       />
       <div data-testid="wrapper" className={`${styles.range} ${isChecked ? "" : `${styles.checked}`}`}>
         <span className={styles.costType}>{costType}</span>
-        <Box
-          className={styles.Box}
-          data-testid="box"
-          sx={{ width: 300, display: "flex", alignItems: "center" }}
-          marginLeft="20px"
-        >
+        <Box className={styles.Box} data-testid="box" sx={{ display: "flex", alignItems: "center" }} marginLeft="20px">
           <Slider
             data-testid="slider"
             sx={{ color: "black" }}
